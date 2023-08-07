@@ -15,3 +15,20 @@ addToDoButton.addEventListener('click', function(){
         toDoContainer.removeChild(paragraph);
     })
 })
+
+// Save note to localStorage
+function saveNote() {
+    const note = document.getElementById('note').value;
+    localStorage.setItem('userNote', note);
+}
+
+// Retrieve note from localStorage
+function loadNote() {
+    const savedNote = localStorage.getItem('userNote');
+    if (savedNote) {
+        document.getElementById('note').value = savedNote;
+    }
+}
+
+// Call loadNote when the page loads
+window.onload = loadNote;
